@@ -1,9 +1,9 @@
 package com.kh.chapter1;
 
-import com.kh.chapter3.Desktop;
-import com.kh.chapter3.Product;
-import com.kh.chapter3.SmartPhone;
-import com.kh.chapter3.Television;
+import com.kh.chapter1.polymorphism.Desktop;
+import com.kh.chapter1.polymorphism.Product;
+import com.kh.chapter1.polymorphism.SmartPhone;
+import com.kh.chapter1.polymorphism.Television;
 
 public class Application {
 
