@@ -20,6 +20,7 @@ public class C_DataStream {
 			dos.writeChar('M');
 			dos.writeBoolean(false);
 			dos.writeDouble(188.4);
+			
 
 			// 파일에서 값을 읽어오기
 			while (true) {

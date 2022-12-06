@@ -8,8 +8,8 @@ public class Application {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int num = 0;
 
+		int num = 0;
 		while (!(num == 4)) {
 
 		FileDao fd = new FileDao();
@@ -22,6 +22,7 @@ public class Application {
 			System.out.println("번호를 입력하세요");
 			num = sc.nextInt();
 
+			System.out.println();
 			switch (num) {
 				case 1:
 					fd.fileSave();
@@ -38,11 +39,11 @@ public class Application {
 				case 4:
 					sc.close();
 					return;
+				
 				default :
 					System.out.println("잘못 입력하셨습니다.");
 					break;
 			}
-
 		}
 		sc.close();
 	}
