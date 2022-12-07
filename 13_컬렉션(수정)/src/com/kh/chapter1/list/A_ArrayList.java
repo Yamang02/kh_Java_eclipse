@@ -1,4 +1,4 @@
-package src.com.kh.chapter1.list;
+package com.kh.chapter1.list;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

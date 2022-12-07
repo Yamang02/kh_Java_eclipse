@@ -1,4 +1,4 @@
-package src.com.kh.chapter1;
+package com.kh.chapter1;
 
 import src.com.kh.chapter1.list.A_ArrayList;
 

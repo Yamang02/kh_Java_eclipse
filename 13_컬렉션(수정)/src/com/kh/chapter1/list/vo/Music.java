@@ -1,4 +1,4 @@
-package src.com.kh.chapter1.list.vo;
+package com.kh.chapter1.list.vo;
 
 public class Music implements Comparable<Music> {
 	private String title;
