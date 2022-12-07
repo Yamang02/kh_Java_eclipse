@@ -1,5 +1,6 @@
-package com.kh.chapter3.map;
+package com.kh.chapter3.map.vo;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map.Entry;
@@ -36,25 +37,50 @@ public class B_Properties {
 			System.out.printf("Key : %s, value : %s\n", entry.getKey(), entry.getValue());
 			
 		}
-			
-			
 		
 	}
 	
+	// Properties 파일 생성 및 저장
 	public void fileSave() {
-		
+
 		Properties prop = new Properties();
-		
+
 		prop.setProperty("List", "ArrayList");
 		prop.setProperty("Set", "HashSet");
 		prop.setProperty("Map", "HashMap");
+
+		try {
+//			prop.store(new FileOutputStream("test1.properties"), "Properties Test 1");
+//			prop.store(new FileWriter("test2.properties"), "Properties Test 2");
+			prop.storeToXML(new FileOutputStream("test3.xml"),"XML Test");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	// Properties 파일에서 데이터 읽기
+	public void fileRead() {
+		Properties prop = new Properties();
 		
 		try {
-			prop.store(new FileOutputStream("test1.properties"), "Properties Test 1");
+//			prop.load(new FileInputStream("test1.properties"));
+//			prop.load(new FileReader("test2.properties"));
+			prop.loadFromXML(new FileInputStream("test3.xml"));
+			
+			System.out.println(prop);
+			System.out.println();
+			System.out.println(prop.getProperty("List"));
+			System.out.println(prop.getProperty("Set"));
+			System.out.println(prop.getProperty("Map"));
 		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
+		
 	}
+
 }
