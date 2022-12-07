@@ -8,7 +8,6 @@ public class Application {
 
 		System.out.println("프로그램 실행");
 		
-		
 //		new B_Properties().fileSave();
 		new B_Properties().fileRead();
 		
