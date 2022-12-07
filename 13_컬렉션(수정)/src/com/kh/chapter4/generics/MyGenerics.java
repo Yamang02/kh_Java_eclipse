@@ -29,6 +29,15 @@ public class MyGenerics<T extends Number> {
 		return list;
 	}
 	
+//	public <R extends Number>R sum(R[] array) {
+//		R result;
+//			
+//		// 인스턴스 간의 합을 구현할 방법?
+//		
+//		
+//		return result;
+//	}
+	
 	
 
 }

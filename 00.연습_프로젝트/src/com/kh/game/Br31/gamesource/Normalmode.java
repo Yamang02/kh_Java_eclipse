@@ -15,21 +15,7 @@ public class Normalmode extends BaskinRobins31 {
 
 		while (cnt < 31) {
 			// 1부터 3까지의 값 입력 받기
-			do {
-				System.err.println("전달할 값만큼 space바를 입력하세요!!");
-				user = scanner.nextLine();
-				if (" ".equals(user)) {
-					usercnt = 1;
-				} else if ("  ".equals(user)) {
-					usercnt = 2;
-				} else if ("   ".equals(user)) {
-					usercnt = 3;
-				} else {
-					usercnt = 0;
-					System.out.println("값을 다시 입력해주세요.");
-					System.out.println();
-				}
-			} while (!(1 <= usercnt && usercnt <= 3));
+			int usercnt = userInput();
 
 			// user가 입력한 값 더하기
 			for (int i = 1; i <= usercnt; i++) {
@@ -53,7 +39,6 @@ public class Normalmode extends BaskinRobins31 {
 				sleep(500);
 				continue;
 			}
-			
 
 			if (cnt < 31) {
 				// 컴퓨터 차례
@@ -70,14 +55,13 @@ public class Normalmode extends BaskinRobins31 {
 					}
 				}
 			}
-			
-			
 		}
 		System.err.println(result);
-		PrintRestartMessage();
-		scanner.close();
+
+		return;
+
 	}
-	
+
 	public void Restart() {
 		this.GameStart();
 	}
