@@ -1,8 +1,8 @@
-package com.kh.chapter1.list;
+package src.com.kh.chapter1.list;
 
 import java.util.Comparator;
 
-import com.kh.chapter1.list.vo.Music;
+import src.com.kh.chapter1.list.vo.Music;
 
 public class ArtistAcending implements Comparator<Music>{
 

@@ -1,11 +1,11 @@
-package com.kh.chapter1.list;
+package src.com.kh.chapter1.list;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.kh.chapter1.list.vo.Music;
+import src.com.kh.chapter1.list.vo.Music;
 
 public class A_ArrayList {
 	// ArrayList를 생성하고 저장, 출력 테스트

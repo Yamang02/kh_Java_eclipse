@@ -1,6 +1,6 @@
-package com.kh.chapter1;
+package src.com.kh.chapter1;
 
-import com.kh.chapter1.list.A_ArrayList;
+import src.com.kh.chapter1.list.A_ArrayList;
 
 public class Application {
 
