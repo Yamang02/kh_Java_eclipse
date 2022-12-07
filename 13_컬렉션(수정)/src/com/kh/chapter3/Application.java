@@ -1,6 +1,6 @@
-package com.kh.chapter3.map;
+package com.kh.chapter3;
 
-import com.kh.chapter3.map.vo.B_Properties;
+import com.kh.chapter3.map.B_Properties;
 
 public class Application {
 

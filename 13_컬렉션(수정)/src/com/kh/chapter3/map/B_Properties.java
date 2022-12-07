@@ -1,4 +1,4 @@
-package com.kh.chapter3.map.vo;
+package com.kh.chapter3.map;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
