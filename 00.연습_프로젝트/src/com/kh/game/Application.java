@@ -10,8 +10,9 @@ public class Application {
 		Scanner scanner = new Scanner(System.in);
 		
 		BaskinRobins31.printMenu();
-		BaskinRobins31.userdifficulty = scanner.nextInt();
+		BaskinRobins31.userDifficulty = scanner.nextInt();
 		BaskinRobins31.chooseDifficulty();
+		
 		
 		
 		scanner.close();

@@ -30,30 +30,37 @@ public class Client {
 		PrintWriter pw = null;
 		Scanner scanner = null;
 		String message = null;
-		
+
 		try {
 			severIP = InetAddress.getLocalHost().getHostAddress(); // 현재 PC의 IP 주소를 가져온다.
+//			severIP = "192.168.20.231"; // 주리
 			socket = new Socket(severIP, port); // 서버와 연결 실패시 null 반환한다.
 
 			if (socket != null) {
 //				2. 서버와 연결된 입출력 스트림을 생성한다.
 //				3. 보조 스트림을 통해 스트림의 성능을 개선한다.
 				br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				pw = new PrintWriter(socket.getOutputStream());
+				pw = new PrintWriter(socket.getOutputStream(), true);
 
 //				4. 스트림을 통해 데이터를 읽고 쓴다.
 				scanner = new Scanner(System.in);
-				System.out.print("서버에 보낼 메시지를 입력하세요 > ");
-				message = scanner.nextLine();
-				
-				pw.println(message);
-				pw.flush();
-				
-				System.out.println("받은 메시지 : " + br.readLine());
-				
-				
+
+				while (true) {
+
+					System.out.print("서버에 보낼 메시지를 입력하세요 > ");
+					message = scanner.nextLine();
+
+					pw.println(message);
+//					pw.flush();
+
+					if (message == null || message.equals("exit")) {
+						System.out.println("접속 종료...");
+						break;
+					}
+
+					System.out.println("받은 메시지 : " + br.readLine());
+				}
 //				5. 통신을 종료한다.
-				
 			}
 
 		} catch (UnknownHostException e) {
@@ -61,7 +68,7 @@ public class Client {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			
+
 			try {
 				scanner.close();
 				pw.close();

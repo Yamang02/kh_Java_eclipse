@@ -60,12 +60,21 @@ public class Server {
 				pw = new PrintWriter(os);
 
 //			    7. 스트림을 통해 데이터를 읽고 쓴다.
-				String message = br.readLine(); // 클라이언트부터 인풋이 진행될 때까지 블로킹 된다..
+				while (true) {
+					String message = br.readLine(); // 클라이언트부터 인풋이 진행될 때까지 블로킹 된다..
 
-				System.out.println(client.getInetAddress().getHostAddress() + "가 보낸 메시지: " + message);
+					if (message == null || message.equals("exit")) {
+						System.out.println("클라이언트 접속 종료");
 
-				pw.println("메시지 받기 성공!");
-				pw.flush();
+						break;
+					}
+
+					System.out.println(client.getInetAddress().getHostAddress() + "가 보낸 메시지: " + message);
+
+					pw.println("메시지 수신 완료");
+					pw.flush();
+
+				}
 
 			}
 
@@ -80,7 +89,7 @@ public class Server {
 				br.close();
 				client.close();
 				server.close();
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

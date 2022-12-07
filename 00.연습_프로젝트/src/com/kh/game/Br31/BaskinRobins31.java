@@ -8,27 +8,51 @@ import com.kh.game.Br31.gamesource.Normalmode;
 
 public abstract class BaskinRobins31 {
 
-	public int cnt = 0;
-	public String user = "";
-	public String result = "";
-	public int choose = 0;
-	public static int userdifficulty = 0;
+	// 필드
+	public static int userDifficulty = 0; // 사용자 정의 난이도
+	public static boolean restart = false; // 재실행여부
+	public static boolean escape = false; // 탈출키
 
+	public int cnt = 0; // 31까지 도달할 count
+	public String user = ""; // 유저 입력값(space를 숫자로 전환);
+	public String result = "";
 	Scanner scanner = new Scanner(System.in);
 
+	// 메소드
+
+	// 난이도별 게임 선택
+	public static void chooseDifficulty() {
+		switch (userDifficulty) {
+		case 1:
+			new Normalmode().GameStart();
+			break;
+		case 2:
+			new Balancedmode().GameStart();
+			break;
+		case 3:
+			new Hellmode().GameStart();
+			break;
+		default:
+			return;
+		}
+	}
+
+	// 난이도별로 게임 시작
 	public abstract void GameStart();
 
+	// 메뉴 출력
 	public static void printMenu() {
-		
+
 		System.out.println("1, 2, 3 중 난이도를 골라주세요");
 		System.out.println("1. 노말모드 - 어렵지 않은 난이도입니다 ");
 		System.out.println("2. 밸런스모드 - 임의의 값에서 컴퓨터가 폭주합니다 ");
 		System.out.println("3. 헬모드 - 단 한번의 실수도 용납되지 않습니다 ");
 		System.out.println("4. 프로그램 종료");
 		System.out.println("숫자 입력    >  ");
-		
+
 	}
-	
+
+	// 시간 지연
 	public void sleep(int i) {
 		try {
 			Thread.sleep(i);
@@ -37,6 +61,7 @@ public abstract class BaskinRobins31 {
 		}
 	}
 
+	// 게임 인트로
 	public void intro() {
 		System.out.println("베스킨~ 라빈스~");
 		sleep(600);
@@ -48,26 +73,7 @@ public abstract class BaskinRobins31 {
 		sleep(600);
 	}
 
-	public void PrintRestartMessage() {
-		System.out.println("게임을 다시 시작하시겠습니까? Y / N 입력");
-
-		try {
-
-			char re = scanner.nextLine().charAt(0);
-
-			if (re == 'Y' | re == 'y') {
-
-			} else {
-				return;
-			}
-		} catch (Exception e) {
-			System.out.println("잘못된 값을 입력하여 메뉴로 돌아갑니다.");
-			return;
-
-		}
-
-	}
-
+	// 유저 입력값 받기 / 전환 / 탈출
 	public int userInput() {
 		int usercnt = 0;
 
@@ -82,29 +88,15 @@ public abstract class BaskinRobins31 {
 				usercnt = 3;
 			} else {
 				usercnt = 0;
+				if (user.equals("x")) {
+					escape = true;
+					break;
+				}
 				System.out.println("값을 다시 입력해주세요.");
-				System.out.println();
 			}
 		} while (!(1 <= usercnt && usercnt <= 3));
 
 		return usercnt;
-
-	}
-
-	public static void chooseDifficulty() {
-		switch (userdifficulty) {
-		case 1:
-			new Normalmode().GameStart();
-			break;
-		case 2:
-			new Balancedmode().GameStart();
-			break;
-		case 3:
-			new Hellmode().GameStart();
-			break;
-		default:
-			return;
-		}
 	}
 
 }
