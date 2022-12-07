@@ -8,17 +8,19 @@ public class Application {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		
-		BaskinRobins31.printMenu();
-		BaskinRobins31.userDifficulty = scanner.nextInt();
-		BaskinRobins31.chooseDifficulty();
-		
-		
-		
-		scanner.close();
 
-		return;
+		while (BaskinRobins31.escape == false) {
+			BaskinRobins31.printMenu();
+			try {
+				BaskinRobins31.userDifficulty = scanner.nextInt();
+			} catch (Exception e) {
+				System.err.println("오류가 감지되었습니다.");
+				break;
+			}
+			BaskinRobins31.chooseDifficulty();
+		}
+		scanner.close();
+		System.out.println("프로그램을 종료합니다.");
 	}
-	
 
 }

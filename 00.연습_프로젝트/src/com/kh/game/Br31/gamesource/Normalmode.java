@@ -10,12 +10,11 @@ public class Normalmode extends BaskinRobins31 {
 		Scanner scanner = new Scanner(System.in);
 
 		intro();
-		System.out.println("노말 모드 게임 시작!");
-		System.out.println();
 
 		while (cnt < 31) {
 			// 1부터 3까지의 값 입력 받기
 			int usercnt = userInput();
+			if (escape == true) {break;}
 
 			// user가 입력한 값 더하기
 			for (int i = 1; i <= usercnt; i++) {
@@ -23,11 +22,12 @@ public class Normalmode extends BaskinRobins31 {
 				System.out.println("user : " + cnt);
 				sleep(600);
 				if (cnt >= 31) {
-					result = "ㅠㅠㅠㅠㅠㅠㅠㅠ  컴퓨터 승리! ㅠㅠㅠㅠㅠㅠㅠㅠ ";
+					result = false;
 					break;
 				}
 			}
 			System.out.println();
+
 
 			if (27 <= cnt && cnt <= 29) {
 				while (cnt <= 29) {
@@ -50,19 +50,19 @@ public class Normalmode extends BaskinRobins31 {
 					System.out.println("com : " + cnt);
 					sleep(600);
 					if (cnt >= 31) {
-						result = "★☆★☆★☆★☆★ user 승리! ★☆★☆★☆★☆★";
+						result = true;
 						break;
 					}
 				}
 			}
 		}
-		System.err.println(result);
+		
+		if (escape == true) {
+			System.out.println("x 입력으로 게임을 종료합니다!");
+			return;
+		}
+		printResult();
 
 		return;
-
-	}
-
-	public void Restart() {
-		this.GameStart();
 	}
 }
