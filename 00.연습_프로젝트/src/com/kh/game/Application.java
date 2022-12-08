@@ -2,6 +2,7 @@ package com.kh.game;
 
 import java.util.Scanner;
 
+import com.kh.game.Br31.BaskinRobins31;
 import com.kh.game.Br31.userdata.UserDataManage;
 
 public class Application {
@@ -13,9 +14,7 @@ public class Application {
 
 		
 		UserDataManage.logIn();
-//		UserDataManage.gameCount();
-		
-//		BaskinRobins31.Startmenu(); 
+		BaskinRobins31.Startmenu(); 
 		
 		scanner.close();
 		System.out.println("프로그램을 종료합니다.");

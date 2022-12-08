@@ -6,28 +6,31 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// 필드
-	public static String userID = "";
+	public String userID = "";
 	public int gameCount;
 	public int winCount;
-
+	public static String IDAddress = "";
+	public static User tempUser;
 	
 	// 생성자
-	public User(String userID) {
-		User.userID = userID;
+	public User() {
+		userID = "";
 		gameCount = 0;
 		winCount = 0;
 		
 	}
 
 
-	public static String getUserID() {
+	public String getUserID() {
 		return userID;
 	}
 
 
-	public static void setUserID(String userID) {
-		User.userID = userID;
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
+
+
 
 
 	public int getGameCount() {
@@ -47,6 +50,11 @@ public class User implements Serializable {
 
 	public void setWinCount(int winCount) {
 		this.winCount = winCount;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", gameCount=" + gameCount + ", winCount=" + winCount + "]";
 	}
 
 }

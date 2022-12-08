@@ -3,6 +3,7 @@ package com.kh.game.Br31.gamesource;
 import java.util.Scanner;
 
 import com.kh.game.Br31.BaskinRobins31;
+import com.kh.game.Br31.userdata.UserDataManage;
 
 public class Balancedmode extends BaskinRobins31 {
 	// hellcount 트리거가 6이상 특정값에서 랜덤으로 작동함.
@@ -130,5 +131,6 @@ public class Balancedmode extends BaskinRobins31 {
 			return;
 		}
 		printResult();
+		UserDataManage.gameCountUp();
 	}
 }

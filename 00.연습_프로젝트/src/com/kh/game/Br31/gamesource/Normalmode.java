@@ -3,6 +3,7 @@ package com.kh.game.Br31.gamesource;
 import java.util.Scanner;
 
 import com.kh.game.Br31.BaskinRobins31;
+import com.kh.game.Br31.userdata.UserDataManage;
 
 public class Normalmode extends BaskinRobins31 {
 
@@ -64,5 +65,6 @@ public class Normalmode extends BaskinRobins31 {
 			return;
 		}
 		printResult();
+		UserDataManage.gameCountUp();
 	}
 }
