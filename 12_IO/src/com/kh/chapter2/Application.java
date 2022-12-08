@@ -11,8 +11,8 @@ public class Application {
 		
 //		new FileByteStream().fileSave();
 //		new FileByteStream().fileRead();
-//		new FileCharStream().fileSave();
-		new FileCharStream().fileRead();
+		new FileCharStream().fileSave();
+//		new FileCharStream().fileRead();
 		
 
 		System.out.println("프로그램 종료");

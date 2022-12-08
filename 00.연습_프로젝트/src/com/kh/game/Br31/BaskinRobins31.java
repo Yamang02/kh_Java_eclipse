@@ -10,13 +10,13 @@ public abstract class BaskinRobins31 {
 
 	// 필드
 	public static int userDifficulty = 0; // 사용자 정의 난이도
-	public static boolean restart = false; // 재실행여부
+	public static boolean restart = true; // 재실행여부
 	public static boolean escape = false; // 탈출키
 	public static boolean result = false; // 사용자승패여부
 
 	public int cnt = 0; // 31까지 도달할 count
 	public String user = ""; // 유저 입력값(space를 숫자로 전환);
-	
+
 	Scanner scanner = new Scanner(System.in);
 
 	// 메소드
@@ -24,7 +24,7 @@ public abstract class BaskinRobins31 {
 	public static void printMenu() {
 
 		System.out.println("1, 2, 3 중 난이도를 골라주세요");
-		System.out.println("게임 중 x를 입력하면 메뉴로 돌아갑니다!");
+		System.out.println("게임 중 x를 입력하면 메뉴로 돌아갑니다");
 		System.out.println("========= <   메   뉴  >=======");
 		System.out.println("1. 노말모드 - 어렵지 않은 난이도입니다 ");
 		System.out.println("2. 밸런스모드 - 임의의 값에서 컴퓨터가 폭주합니다 ");
@@ -33,6 +33,28 @@ public abstract class BaskinRobins31 {
 		System.out.println("===============================");
 		System.out.println("숫자 입력    >  ");
 
+	}
+
+	// 스타트 메뉴
+	public static void Startmenu() {
+
+		while (restart == true) {
+			
+			if (restart == true) {
+			printMenu();
+			}
+			Scanner scanner = new Scanner(System.in);
+			
+			try {
+			userDifficulty = scanner.nextInt();
+			} catch (Exception e) {
+				System.err.println("잘못된 값을 입력하여 프로그램을 종료합니다.");
+				break;
+			}
+			chooseDifficulty();
+			System.out.println();
+			sleep(1500);
+		}
 	}
 
 	// 난이도별 게임 선택
@@ -48,6 +70,7 @@ public abstract class BaskinRobins31 {
 			new Hellmode().GameStart();
 			break;
 		default:
+			restart = false;
 			escape = true;
 			return;
 		}
@@ -65,8 +88,8 @@ public abstract class BaskinRobins31 {
 		System.out.println("귀엽고~ 깜찍하게~");
 		sleep(600);
 		System.err.println("31~");
-		sleep(600);
-		System.out.printf("%s모드 게임 시작!\n", (userDifficulty == 1)? "노말" : (userDifficulty == 2)? "밸런스" : "헬");
+		System.out.printf("%s모드 게임 시작!\n", (userDifficulty == 1) ? "노말" : (userDifficulty == 2) ? "밸런스" : "헬");
+		sleep(800);
 		System.out.println();
 	}
 
@@ -105,15 +128,35 @@ public abstract class BaskinRobins31 {
 		}
 		sleep(1000);
 		System.out.println();
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("메뉴로 돌아가시겠습니까?");
+		System.out.println("y > 메뉴 /  n > 게임종료");
+
+		try {
+			char backToMenu = scanner.nextLine().charAt(0);
+
+			if (backToMenu == 'y' || backToMenu == 'Y') {
+				return;
+			} else if (backToMenu == 'n' || backToMenu == 'N') {
+				restart = false;
+				return;
+			}
+		} catch (Exception e) {
+			System.out.println("잘못된 값을 입력하여 프로그램을 종료합니다.");
+			restart = false;
+			return;
+		}
+
 	}
-	
+
 	// 시간 지연
-	public void sleep(int i) {
+	public static void sleep(int i) {
 		try {
 			Thread.sleep(i);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

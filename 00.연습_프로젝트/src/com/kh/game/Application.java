@@ -2,23 +2,21 @@ package com.kh.game;
 
 import java.util.Scanner;
 
-import com.kh.game.Br31.BaskinRobins31;
+import com.kh.game.Br31.userdata.UserDataManage;
 
 public class Application {
 
 	public static void main(String[] args) {
+		
+		System.out.println("프로그램을 시작합니다.");
 		Scanner scanner = new Scanner(System.in);
 
-		while (BaskinRobins31.escape == false) {
-			BaskinRobins31.printMenu();
-			try {
-				BaskinRobins31.userDifficulty = scanner.nextInt();
-			} catch (Exception e) {
-				System.err.println("오류가 감지되었습니다.");
-				break;
-			}
-			BaskinRobins31.chooseDifficulty();
-		}
+		
+		UserDataManage.logIn();
+//		UserDataManage.gameCount();
+		
+//		BaskinRobins31.Startmenu(); 
+		
 		scanner.close();
 		System.out.println("프로그램을 종료합니다.");
 	}

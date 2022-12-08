@@ -17,8 +17,6 @@ public class Balancedmode extends BaskinRobins31 {
 		Scanner scanner = new Scanner(System.in);
 
 		intro();
-		System.out.println("밸런스모드 게임 시작!");
-		System.out.println();
 
 		while (cnt < 31) {
 
@@ -37,21 +35,10 @@ public class Balancedmode extends BaskinRobins31 {
 			}
 
 			// 1부터 3까지의 값 입력 받기
-			do {
-				System.err.println("전달할 값만큼 space바를 입력하세요!!");
-				user = scanner.nextLine();
-				if (" ".equals(user)) {
-					usercnt = 1;
-				} else if ("  ".equals(user)) {
-					usercnt = 2;
-				} else if ("   ".equals(user)) {
-					usercnt = 3;
-				} else {
-					usercnt = 0;
-					System.out.println("값을 다시 입력해주세요.");
-					System.out.println();
-				}
-			} while (!(1 <= usercnt && usercnt <= 3));
+			int usercnt = userInput();
+			if (escape == true) {
+				break;
+			}
 
 			// user가 입력한 값 더하기
 			for (int i = 1; i <= usercnt; i++) {
@@ -59,7 +46,7 @@ public class Balancedmode extends BaskinRobins31 {
 				System.out.println("user : " + cnt);
 				sleep(600);
 				if (cnt >= 31) {
-					result = "ㅠㅠㅠㅠㅠㅠㅠㅠ  컴퓨터 승리! ㅠㅠㅠㅠㅠㅠㅠㅠ ";
+					result = false;
 					break;
 				}
 			}
@@ -78,7 +65,7 @@ public class Balancedmode extends BaskinRobins31 {
 					System.out.println("com : " + cnt);
 					sleep(600);
 					if (cnt >= 31) {
-						result = "★☆★☆★☆★☆★ user 승리! ★☆★☆★☆★☆★";
+						result = true;
 						break;
 					}
 				}
@@ -104,7 +91,7 @@ public class Balancedmode extends BaskinRobins31 {
 						System.err.println("com(hell) : " + cnt);
 						sleep(600);
 						if (cnt >= 31) {
-							result = "★☆★☆★☆★☆★ user 승리! ★☆★☆★☆★☆★";
+							result = true;
 							sleep(800);
 							System.out.println();
 							System.out.println("com(hell)님의 메시지 : ...");
@@ -138,8 +125,10 @@ public class Balancedmode extends BaskinRobins31 {
 
 			}
 		}
-		System.err.println(result);
-		scanner.close();
+		if (escape == true) {
+			System.out.println("x 입력으로 게임을 종료합니다!");
+			return;
+		}
+		printResult();
 	}
-
 }

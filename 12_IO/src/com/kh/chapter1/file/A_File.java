@@ -18,7 +18,6 @@ public class A_File {
 			// 존재하는 경로까지 지정해 주면 해당 위치에 파일을 생성한다.
 			// 만약에 존재하지 않는 경로를 제시하면 IOException 발생한다.		
 			
-			
 			File file2 = new File("D:/test2.txt");
 			String dr = "d:/temp/test";
 //			file2.mkdirs();

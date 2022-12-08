@@ -7,6 +7,7 @@ import com.kh.game.Br31.BaskinRobins31;
 public class Normalmode extends BaskinRobins31 {
 
 	public void GameStart() {
+
 		Scanner scanner = new Scanner(System.in);
 
 		intro();
@@ -14,7 +15,9 @@ public class Normalmode extends BaskinRobins31 {
 		while (cnt < 31) {
 			// 1부터 3까지의 값 입력 받기
 			int usercnt = userInput();
-			if (escape == true) {break;}
+			if (escape == true) {
+				break;
+			}
 
 			// user가 입력한 값 더하기
 			for (int i = 1; i <= usercnt; i++) {
@@ -27,7 +30,6 @@ public class Normalmode extends BaskinRobins31 {
 				}
 			}
 			System.out.println();
-
 
 			if (27 <= cnt && cnt <= 29) {
 				while (cnt <= 29) {
@@ -56,13 +58,11 @@ public class Normalmode extends BaskinRobins31 {
 				}
 			}
 		}
-		
+
 		if (escape == true) {
 			System.out.println("x 입력으로 게임을 종료합니다!");
 			return;
 		}
 		printResult();
-
-		return;
 	}
 }
