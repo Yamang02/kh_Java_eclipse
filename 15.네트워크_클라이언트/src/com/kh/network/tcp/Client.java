@@ -32,8 +32,8 @@ public class Client {
 		String message = null;
 
 		try {
-			severIP = InetAddress.getLocalHost().getHostAddress(); // 현재 PC의 IP 주소를 가져온다.
-//			severIP = "192.168.20.231"; // 주리
+//			severIP = InetAddress.getLocalHost().getHostAddress(); // 현재 PC의 IP 주소를 가져온다.
+			severIP = "192.168.20.234";
 			socket = new Socket(severIP, port); // 서버와 연결 실패시 null 반환한다.
 
 			if (socket != null) {

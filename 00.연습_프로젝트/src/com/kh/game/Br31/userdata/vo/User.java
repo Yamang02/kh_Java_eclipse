@@ -54,7 +54,7 @@ public class User implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "User [userID=" + userID + ", gameCount=" + gameCount + ", winCount=" + winCount + "]";
+		return "User [ 아이디 " + userID + ", 게임 플레이 횟수 : " + gameCount + ", 이긴 횟수 : " + winCount + "]";
 	}
 
 }

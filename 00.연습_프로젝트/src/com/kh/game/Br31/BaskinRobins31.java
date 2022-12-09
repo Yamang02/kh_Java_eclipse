@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.kh.game.Br31.gamesource.Balancedmode;
 import com.kh.game.Br31.gamesource.Hellmode;
 import com.kh.game.Br31.gamesource.Normalmode;
+import com.kh.game.Br31.userdata.vo.User;
 
 public abstract class BaskinRobins31 {
 
@@ -123,6 +124,7 @@ public abstract class BaskinRobins31 {
 	public void printResult() {
 		if (result == true) {
 			System.err.println("★☆★☆★☆★☆★ user 승리! ★☆★☆★☆★☆★");
+			User.tempUser.winCount++;;
 		} else {
 			System.err.println("ㅠㅠㅠㅠㅠㅠㅠ computer 승리! ㅠㅠㅠㅠㅠㅠ");
 		}
@@ -147,7 +149,6 @@ public abstract class BaskinRobins31 {
 			restart = false;
 			return;
 		}
-
 	}
 
 	// 시간 지연

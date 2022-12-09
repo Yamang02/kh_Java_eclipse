@@ -57,6 +57,7 @@ public class UserDataManage extends User {
 				e.printStackTrace();
 			}
 			System.out.printf("%s님, 다시 오신 것을 환영합니다. 해당 아이디로 게임을 시작합니다.\n", ID);
+			System.out.println();
 		} else { // 새로운 유저 로그인시 기본 object 생성, 기본정보 넘긴 후 게임시작
 			try {
 				path.createNewFile();
@@ -96,19 +97,18 @@ public class UserDataManage extends User {
 				}
 
 				System.out.printf("%s님, 처음뵙겠습니다. 해당 ID로 정보을 생성하여 게임을 시작합니다.\n", ID);
-
+				System.out.println();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-
 	}
 
 	// 유저 게임시도 횟수 관리 메소드
 	public static void gameCountUp() {
-		
-		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(savePath + tempUser.userID + ".dat"))) {
+
+		try (ObjectOutputStream oos = new ObjectOutputStream(
+				new FileOutputStream(savePath + tempUser.userID + ".dat"))) {
 
 			tempUser.gameCount++;
 			oos.writeObject(tempUser);
@@ -119,7 +119,7 @@ public class UserDataManage extends User {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	// 유저 텍스트 파일 생성
