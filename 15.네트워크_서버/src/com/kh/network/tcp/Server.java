@@ -1,15 +1,10 @@
 package com.kh.network.tcp;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.kh.network.receivier.Receiver;
+import com.kh.network.receiver.Receiver;
 
 /*
 	    서버용 TCP 소켓 프로그래밍 순서
