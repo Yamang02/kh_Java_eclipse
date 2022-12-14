@@ -8,14 +8,16 @@ public class Application {
 
 		Heap heap = new Heap();
 		heap.generateArray();
-
-		for (int i = 0; i < 5; i++) {
+		
+		for (int i = 1; i < 7; i++) {
 			heap.addNum(i);
 		}
 		
-		System.out.println(heap.popNum());
 		heap.printArray();
+		heap.printArray();
+		System.out.println(heap.popNum());
 		
+		heap.printArray();
 		
 	}
 }
