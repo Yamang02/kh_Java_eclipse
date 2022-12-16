@@ -1,4 +1,4 @@
-package com.kh.network.tcp;
+package com.kh.chat.client.practice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class Client {
 	public void clientStart() {
 
 //		1. 서버의 IP 주소와 포트 번호로 클라이언트용 소켓 객체를 생성한다.
-		int port = 2000;
+		int port = 30000;
 		String severIP = null;
 		Socket socket = null;
 		BufferedReader br = null;

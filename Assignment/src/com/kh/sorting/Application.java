@@ -1,23 +1,22 @@
 package com.kh.sorting;
 
-import com.kh.datastructure.pratice.Heap;
+import com.kh.datastructure.pratice.Maxheap;
 
 public class Application {
 
 	public static void main(String[] args) {
 
-		Heap heap = new Heap();
-		heap.generateArray();
+		Maxheap mheap = new Maxheap();
+		mheap.generateArray();
 		
-		for (int i = 1; i < 7; i++) {
-			heap.addNum(i);
+		for (int i = 1; i < 6; i++) {
+			mheap.addNum(i);
 		}
 		
-		heap.printArray();
-		heap.printArray();
-		System.out.println(heap.popNum());
+		mheap.printArray();
+		System.out.println(mheap.popNum());
 		
-		heap.printArray();
+		mheap.printArray();
 		
 	}
 }

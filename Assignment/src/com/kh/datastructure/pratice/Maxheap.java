@@ -2,7 +2,7 @@ package com.kh.datastructure.pratice;
 
 import java.util.ArrayList;
 
-public class Heap {
+public class Maxheap {
 
 	public static ArrayList<Integer> list;
 	public static int bigNum;
@@ -14,7 +14,7 @@ public class Heap {
 		addNum(0);
 	}
 
-	// 0번 인덱스를 제외하고 LIST 출력
+	// LIST 출력
 	public void printArray() {
 
 		System.out.println(list);
@@ -35,6 +35,46 @@ public class Heap {
 				break;
 			}
 		}
+	}
+
+	// 최대값을 반환하고 다시 정렬
+	public int popNum() {
+		// 1번 인덱스를 꺼냄
+		bigNum = list.get(1);
+
+		// 가장 마지막 인덱스와 1번을 교체함(이후 마지막 인덱스 값을 지움)
+		swap(list.size() - 1, 1);
+		list.remove(list.size() - 1);
+
+		// 새로운 마지막 인덱스 값
+		int lastIndex = list.size() - 1;
+		int childIndex;
+		// 1부터 자식 노드들을 비교
+		for (int i = 1; !(i >= lastIndex);) {
+
+			// 왼쪽 노드와 오른쪽 노드의 인덱스값
+			int leftChildIndex = i * 2;
+			int rightChildIndex = i * 2 + 1;
+
+			// lastindex보다 큰 index를 조회할 수 없도록 함			
+			if (leftChildIndex > lastIndex && rightChildIndex > lastIndex) {
+				break;
+			} else if (leftChildIndex == lastIndex) {
+				childIndex = leftChildIndex;
+			} else { // 자식 노드들 중 더 큰 값을 선택
+				childIndex = BiggerChildIndex(leftChildIndex, rightChildIndex);
+			}
+
+			
+			// 부모 노드와 자식노드를 비교해 더 크면 위치를 바꿈
+			if (list.get(i) < list.get(childIndex)) {
+				swap(i, childIndex);
+				i = childIndex;
+			} else {
+				break;
+			}
+		}
+		return bigNum;
 	}
 
 	// list내 요소의 위치를 서로 바꾸는 메소드
@@ -60,29 +100,5 @@ public class Heap {
 		}
 		return biggerIndex;
 	}
-
-	public int popNum() {
-		// 1번 인덱스를 꺼냄
-		bigNum = list.get(1);
-
-		// 가장 마지막 인덱스와 1번을 교체함(이후 마지막 인덱스 값을 지움)
-		swap(list.size() - 1, 1);
-		list.remove(list.size() - 1);
-
-		// 새로운 마지막 인덱스 값
-		int lastIndex = list.size() - 1;
-		int parentIndex = 1;
-		int childIndex;
-		// 1부터 자식 노드들을 비교
-		for (int i = parentIndex; i < lastIndex;) {
-
-			// 왼쪽 노드와 오른쪽 노드의 인덱스값
-			int leftChildIndex = i * 2;
-			int rightChildIndex = i * 2 + 1;
-
-			
-			
-		}
-		return bigNum;
-	}
+	
 }
